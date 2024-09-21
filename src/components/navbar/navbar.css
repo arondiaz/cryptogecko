@@ -1,0 +1,62 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10%;
+  color: #ddd;
+  border-bottom: 2px solid #3c3c3c;
+}
+
+.navbar .logo {
+  width: max(3vw, 14px);
+  fill: white;
+}
+
+.navbar .navbar-ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.navbar li {
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: max(1vw, 12px);
+}
+
+.navbar-right select {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-right option {
+  background-color: #120a5a;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 24px;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #393939;
+  border: none;
+  cursor: pointer;
+  background: white;
+}
+
+.reg-icon {
+  width: 1.4rem;
+}
