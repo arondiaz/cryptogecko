@@ -1,8 +1,26 @@
 import { CIcon } from "@coreui/icons-react";
 import { cibRiseup, cilArrowRight } from "@coreui/icons";
 import "./navbar.css";
+import { useContext } from "react";
+import { CoinContext } from "../../context/CoinContext";
 
 const Navbar = () => {
+  const { setCurrency } = useContext(CoinContext);
+
+  const currencyHandler = (e) => {
+    if (e.target.value === "usd") {
+      setCurrency({
+        name: "usd",
+        symbol: "$",
+      });
+    } else {
+      setCurrency({
+        name: "eur",
+        symbol: "€",
+      });
+    }
+  };
+
   return (
     <div className="navbar">
       <CIcon icon={cibRiseup} size="xl" className="logo" />
@@ -15,7 +33,7 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-right">
-        <select>
+        <select onChange={currencyHandler}>
           <option value="usd">USD</option>
           <option value="eur">EUR</option>
         </select>
