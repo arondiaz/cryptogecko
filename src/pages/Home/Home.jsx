@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import "./home.css";
+import { CoinContext } from "../../context/CoinContext";
 
 const Home = () => {
+  const { allCoin, currency } = useContext(CoinContext);
+  console.log(allCoin);
   return (
     <div className="home">
       <div className="hero">
@@ -24,9 +28,41 @@ const Home = () => {
           <p>#</p>
           <p>Coins</p>
           <p>Price</p>
-          <p>Variation</p>
+          <p className="supply">Supply</p>
+          <p className="supply">Variation</p>
           <p className="marketcap">Market Cap</p>
         </div>
+
+        {allCoin.slice(0, 10).map((coin) => (
+          <div key={coin.id} className="table-layout">
+            <p>{coin.market_cap_rank}</p>
+            <div className="container-img">
+              <img src={coin.image} alt="" />
+              <p>
+                <strong> {coin.symbol.toUpperCase()} </strong>
+                {coin.name}{" "}
+              </p>
+            </div>
+
+            <p>
+              {currency.symbol}
+              {coin.current_price.toLocaleString("en")}
+            </p>
+
+            <p className="supply">
+              {coin.circulating_supply.toLocaleString("en")}
+            </p>
+            <p
+              className={`supply ${coin.price_change_percentage_24h > 0 ? "green" : "red"} `}
+            >
+              {Math.floor(coin.price_change_percentage_24h * 100) / 100}
+            </p>
+            <p className="marketcap">
+              {currency.symbol}
+              {coin.market_cap.toLocaleString("en")}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

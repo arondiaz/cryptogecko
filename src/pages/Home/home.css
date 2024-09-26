@@ -63,12 +63,38 @@
 
 .table-layout {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 0.5fr 2fr 1fr 2.5fr 1fr 1.5fr;
   padding: 15px 20px;
   align-items: center;
-  /* border-bottom: 1px solid #3c3c3c; */
+  border-bottom: 1px solid #3c3c3c;
 }
 
-.marketcap{
-    text-align: right;
+.marketcap {
+  text-align: right;
+}
+
+.supply{
+  text-align: center;
+}
+
+.table-layout:last-child {
+  border-bottom: none;
+}
+
+.container-img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-img img {
+  width: 35px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
