@@ -1,0 +1,22 @@
+.footer {
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
+  margin: auto;
+  font-size: 1rem;
+  padding: 15px 0;
+  border-top: 1px solid rgb(68, 68, 68);
+  max-width: 80%;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: end;
+  gap: 14px;
+}
+
+.logo {
+  width: max(2vw, 10px);
+  fill: white;
+  cursor: pointer;
+}
