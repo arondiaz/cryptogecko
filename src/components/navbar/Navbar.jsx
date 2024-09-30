@@ -3,6 +3,7 @@ import { cibRiseup, cilArrowRight } from "@coreui/icons";
 import "./navbar.css";
 import { useContext } from "react";
 import { CoinContext } from "../../context/CoinContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { setCurrency } = useContext(CoinContext);
@@ -23,10 +24,13 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <CIcon icon={cibRiseup} size="xl" className="logo" />
-
+      <Link to={"/"}>
+        <CIcon icon={cibRiseup} size="xl" className="logo" />
+      </Link>
       <ul className="navbar-ul">
-        <li>Home</li>
+        <Link to={"/"}>
+          <li>Home</li>{" "}
+        </Link>
         <li>Features</li>
         <li>Pricing</li>
         <li>Blog</li>
