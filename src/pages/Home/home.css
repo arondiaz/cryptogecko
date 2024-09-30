@@ -73,7 +73,11 @@
   text-align: right;
 }
 
-.supply{
+.supply {
+  text-align: center;
+}
+
+.variation {
   text-align: center;
 }
 
@@ -97,4 +101,37 @@
 
 .red {
   color: red;
+}
+
+@media (max-width: 770px) {
+  .table-layout {
+    grid-template-columns: 0.5fr 3fr 1fr 2.5fr 1fr;
+  }
+
+  .marketcap {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .table-layout .container-img {
+    width: 28px;
+  }
+
+  .table-layout {
+    grid-template-columns: 0.5fr 3fr 1fr 1fr;
+    font-size: 13px;
+  }
+
+  .table-layout .supply {
+    display: none;
+  }
+
+  .marketcap {
+    display: none;
+  }
+
+  .hero form input{
+    width: 100px;
+  }
 }

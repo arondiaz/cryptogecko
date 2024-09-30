@@ -29,7 +29,7 @@ const Home = () => {
           <p>Coins</p>
           <p>Price</p>
           <p className="supply">Supply</p>
-          <p className="supply">Variation</p>
+          <p className="variation">Variation</p>
           <p className="marketcap">Market Cap</p>
         </div>
 
@@ -53,7 +53,7 @@ const Home = () => {
               {coin.circulating_supply.toLocaleString("en")}
             </p>
             <p
-              className={`supply ${coin.price_change_percentage_24h > 0 ? "green" : "red"} `}
+              className={`variation ${coin.price_change_percentage_24h > 0 ? "green" : "red"} `}
             >
               {Math.floor(coin.price_change_percentage_24h * 100) / 100}
             </p>
