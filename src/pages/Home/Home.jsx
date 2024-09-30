@@ -5,10 +5,32 @@ import { CoinContext } from "../../context/CoinContext";
 const Home = () => {
   const { allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     setDisplayCoin(allCoin);
   }, [allCoin]);
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+
+    if(e.target.value === ""){
+      setDisplayCoin(allCoin);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const coins = await allCoin.filter((item) => {
+      return (
+        item.name.toLowerCase().includes(input.toLocaleLowerCase()) ||
+        item.symbol.toLowerCase().includes(input.toLocaleLowerCase())
+      );
+    });
+
+    setDisplayCoin(coins);
+  };
 
   return (
     <div className="home">
@@ -22,8 +44,13 @@ const Home = () => {
           consectetur ipsum natus voluptates quaerat velit sit ipsam illum
           aliquam.
         </p>
-        <form>
-          <input type="text" placeholder="Search crypto..." />
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={handleInput}
+            value={input}
+            type="text"
+            placeholder="Search crypto..."
+          />
           <button type="submit">Search</button>
         </form>
       </div>
