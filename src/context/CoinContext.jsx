@@ -22,7 +22,7 @@ const CoinContextProvider = (props) => {
         "x-cg-demo-api-key": apiKey,
       },
     };
-    console.log(options);
+
     fetch(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
       options
