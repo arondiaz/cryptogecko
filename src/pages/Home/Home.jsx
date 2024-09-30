@@ -14,7 +14,7 @@ const Home = () => {
   const handleInput = (e) => {
     setInput(e.target.value);
 
-    if(e.target.value === ""){
+    if (e.target.value === "") {
       setDisplayCoin(allCoin);
     }
   };
