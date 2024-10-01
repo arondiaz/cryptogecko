@@ -9,12 +9,14 @@ const Coin = () => {
 
   const { coinID } = useParams();
 
+  const apiKey = import.meta.env.VITE_API_KEY;
+
   useEffect(() => {
     const options = {
       method: "GET",
       headers: {
         accept: "application/json",
-        "x-cg-demo-api-key": "CG-s3x5gU2M67GbAJTf5vEZWha3",
+        "x-cg-demo-api-key": apiKey,
       },
     };
 
