@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import "./coin.css";
 import { useParams } from "react-router-dom";
 import { CoinContext } from "../../context/CoinContext";
+import CoinChart from "../../components/chart/CoinChart";
 
 const Coin = () => {
   const { currency } = useContext(CoinContext);
   const [coin, setCoin] = useState();
+  const [historical, setHistorical] = useState();
 
   const { coinID } = useParams();
 
@@ -20,27 +22,68 @@ const Coin = () => {
       },
     };
 
-    const getData = () => {
+    const getData = async () => {
       fetch(`https://api.coingecko.com/api/v3/coins/${coinID}`, options)
         .then((response) => response.json())
         .then((response) => setCoin(response))
         .catch((err) => console.error(err));
     };
 
-    getData();
-  }, [coinID]);
+    const getHistorical = async () => {
+      fetch(
+        `https://api.coingecko.com/api/v3/coins/${coinID}/market_chart?vs_currency=${currency.name}&days=10`,
+        options
+      )
+        .then((response) => response.json())
+        .then((response) => setHistorical(response))
+        .catch((err) => console.error(err));
+    };
 
-  console.log(coin);
+    getData();
+    getHistorical();
+  }, [coinID]);
 
   return (
     <div>
-      {coin ? (
+      {coin && historical ? (
         <div className="coin">
           <div className="coin-name">
             <img src={coin.image.large} alt="" />
             <p>
               {coin.name} ({coin.symbol.toUpperCase()}){" "}
             </p>
+          </div>
+          <div className="coin-chart">
+            <CoinChart historical={historical} />
+          </div>
+
+          <div className="coin-info">
+            <ul>
+              <li>Market Rank</li>
+              <li>{coin.market_cap_rank}</li>
+            </ul>
+
+            <ul>
+              <li>Current Price</li>
+              <li>
+                {currency.symbol}
+                {coin.market_data.current_price[currency.name].toLocaleString()}
+              </li>
+            </ul>
+            <ul>
+              <li>High 24hs</li>
+              <li>
+                {currency.symbol}
+                {coin.market_data.high_24h[currency.name].toLocaleString()}
+              </li>
+            </ul>
+            <ul>
+              <li>Low 24hs</li>
+              <li>
+                {currency.symbol}
+                {coin.market_data.low_24h[currency.name].toLocaleString()}
+              </li>
+            </ul>
           </div>
         </div>
       ) : (
