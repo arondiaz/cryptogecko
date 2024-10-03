@@ -14,10 +14,15 @@ const Navbar = () => {
         name: "usd",
         symbol: "$",
       });
-    } else {
+    } else if (e.target.value === "eur") {
       setCurrency({
         name: "eur",
         symbol: "€",
+      });
+    } else {
+      setCurrency({
+        name: "ars",
+        symbol: "$",
       });
     }
   };
@@ -40,6 +45,7 @@ const Navbar = () => {
         <select onChange={currencyHandler}>
           <option value="usd">USD</option>
           <option value="eur">EUR</option>
+          <option value="ars">ARS</option>
         </select>
 
         <button className="navbar-btn">
