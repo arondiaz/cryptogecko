@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Coin from "./pages/Coin/Coin";
 import Footer from "./components/footer/Footer";
+import Exchanges from "./pages/Exchanges/Exchanges";
 
 const App = () => {
   return (
@@ -12,8 +13,10 @@ const App = () => {
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path={"/coin/:coinID"} element={<Coin />} />
+        <Route path={"/exchanges"} element={<Exchanges />} />
+        <Route path={"/exchange/:exchangeID"} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
