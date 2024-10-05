@@ -12,7 +12,6 @@ const Exchange = () => {
     setDisplayExchange(allExchange);
   }, [allExchange]);
 
-  console.log(displayExchange);
   return (
     <div className="home-exc">
       <div className="hero-exc">
@@ -41,7 +40,7 @@ const Exchange = () => {
         </div>
 
         {displayExchange.slice(0, 10).map((exchange, index) => (
-          <Link to={"/"} key={exchange.id} className="table-exchange">
+          <Link to={`/exchange/${exchange.id}`} key={exchange.id} className="table-exchange">
             <p>{index}</p>
             <div className="container-exc">
               <img src={exchange.image} alt="" />

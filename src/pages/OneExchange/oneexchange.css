@@ -1,0 +1,42 @@
+.container-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-info {
+  margin: 2rem 0rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main-info h2 {
+  margin: 1rem 0;
+}
+
+.img-exchange {
+  max-width: 150px;
+}
+
+.info-ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
+.info-ul li {
+  border-bottom: 1px solid gray;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+ 
+}
