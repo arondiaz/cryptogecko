@@ -63,10 +63,14 @@
 
 .table-exchange {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr 2.5fr 1fr;
+  grid-template-columns: 2fr 1fr 2.5fr 1fr;
   padding: 15px 20px;
   align-items: center;
   border-bottom: 1px solid #3c3c3c;
+}
+
+.exch {
+  text-align: center;
 }
 
 .year {
