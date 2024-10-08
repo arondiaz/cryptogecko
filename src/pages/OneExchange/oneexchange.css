@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .main-info h2 {
@@ -17,7 +18,7 @@
 }
 
 .img-exchange {
-  max-width: 150px;
+  max-width: 70px;
 }
 
 .info-ul {
@@ -39,4 +40,38 @@
   display: flex;
   flex-direction: column;
  
+}
+
+
+.select-container{
+  margin: 2rem;
+}
+
+.select-crypto{
+  border: none;
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 0.75rem;
+  background-color: rgb(76, 13, 112);
+  color: white;
+}
+
+.data-crypto{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem 0rem;
+}
+
+.data-format{
+  margin: 0.5rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.data-format > *{
+  margin: 0.5rem 0rem;
 }
