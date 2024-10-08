@@ -39,9 +39,9 @@ const Exchange = () => {
           <p className="volume">Volume 24hs </p>
         </div>
 
-        {displayExchange.slice(0, 10).map((exchange, index) => (
+        {displayExchange.slice(0, 10).map((exchange, index=1) => (
           <Link to={`/exchange/${exchange.id}`} key={exchange.id} className="table-exchange">
-            <p>{index}</p>
+            <p>{index + 1}</p>
             <div className="container-exc">
               <img src={exchange.image} alt="" />
 
@@ -51,7 +51,7 @@ const Exchange = () => {
             <p className="year">{exchange.year_established}</p>
 
             <Link to={exchange.url} className="website">
-              <p>{exchange.name.toLowerCase()}.com</p>
+              <p>{exchange.name.toLowerCase().split(" ")}.com</p>
             </Link>
 
             <p className="volume">{exchange.trade_volume_24h_btc.toLocaleString("en")}btc</p>
